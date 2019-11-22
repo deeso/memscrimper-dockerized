@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  memscrimper:
+    tty: true
+    build: .
+    volumes:
+      # sudo mkdir /var/run/memscrimper/ && sudo chmod a+rw /var/run/memscrimper/
+          - /var/run/memscrimper:/var/run/memscrimper
+          - /data/memory_dumps/:/data/memory_dumps
+    command: s 10 /var/run/memscrimper/ms.sock
